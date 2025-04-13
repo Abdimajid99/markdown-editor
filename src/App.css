@@ -1,0 +1,123 @@
+body {
+  height: 100dvh;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: hsl(0, 0%, 9%);
+}
+
+#root {
+  width: min(100%, 1000px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0.75rem;
+  padding: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.edit-btn {
+  font-size: 1.25rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  aspect-ratio: 1 / 1;
+  display: flex; /*this centers the icon*/
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 5%);
+
+  border: 1.5px solid transparent;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.edit-btn:hover {
+  border-color: #b5dbef;
+  transform: scale(1.15);
+}
+.edit-btn:active {
+  transform: scale(0.95);
+}
+
+.content-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  background-color: hsl(0, 0%, 9%);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.markdown-panel {
+  flex-basis: 50%;
+  padding: 4px;
+  border-radius: 0.75rem;
+
+  transition: margin 0.3s;
+  margin-left: calc(-50% - 0.5rem);
+}
+
+.markdown-panel.editing {
+  margin-left: 0;
+}
+
+.markdown-panel textarea {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  padding-top: 2rem;
+  border: 4px solid hsl(240, 9%, 13%);
+  border-radius: 0.75rem;
+  resize: none;
+  background-color: hsl(0, 0%, 5%);
+}
+
+.html-panel {
+  flex-grow: 1;
+  flex-basis: 50%;
+
+  max-width: min(100%, 500px);
+  margin: 0 auto;
+  padding-left: 1rem;
+  overflow: scroll;
+}
+
+/* hide scrollbar */
+.html-panel {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.html-panel::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  #root {
+    padding: 0.75rem;
+  }
+
+  .edit-btn {
+    border-color: #b5dbef;
+    z-index: 3;
+  }
+
+  .markdown-panel {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+
+    margin-left: calc(-100% - 0.5rem);
+  }
+}
