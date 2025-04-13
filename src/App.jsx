@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MdOutlineEdit, MdOutlineSaveAs } from "react-icons/md";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import "./App.css";
 
 const starterMarkdown = `# Sample Markdown
